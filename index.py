@@ -12,7 +12,7 @@ word_length = len(chosen_word)
 word_replace=chosen_word.replace(chosen_word, "_"*word_length)
 word_replace_list=list(word_replace)
 print(hangman_art.logo)
-print(chosen_word)
+
 
 while not end_game:
 	guess_letter = input("Guess a letter: ").lower()
