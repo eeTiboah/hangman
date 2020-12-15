@@ -1,10 +1,10 @@
 #Hangman Project
 import random
 import hangman_art
-import hangman_words
+import requests
 
-
-word_list=hangman_words.word_list
+response = requests.get("https://api.noopschallenge.com/wordbot?count=100")
+word_list = response.json()['words']
 chosen_word=random.choice(word_list)
 end_game=False
 lives=6
@@ -27,6 +27,7 @@ while not end_game:
 		lives-=1
 		if lives==0:
 			print("You lose!.")
+			print(f"The word is {chosen_word}")
 			end_game=True
 	print("  ".join(word_replace_list))
 	if "_" not in word_replace_list:
